@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hubbard.inventorysystem.controller.MainController">
+   <children>
+      <Label layoutX="54.0" layoutY="50.0" prefHeight="32.0" prefWidth="302.0" text="Inventory Management System" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="1095.0" layoutY="339.0" mnemonicParsing="false" onAction="#onExitButtonPressed" text="Exit" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="70.0" />
+      <HBox layoutX="50.0" layoutY="82.0" prefHeight="250.0" prefWidth="900.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Pane prefHeight="240.0" prefWidth="500.0" style="-fx-border-color: black; -fx-border-radius: 30;">
+               <children>
+                  <TextField fx:id="partSearchField" layoutX="275.0" layoutY="10.0" onKeyReleased="#onPartUserInput" onMouseClicked="#onPartUserInput" prefWidth="160.0" promptText="Search by Part Name or ID" />
+                  <TableView fx:id="partTableView" layoutX="40.0" layoutY="40.0" prefHeight="170.0" prefWidth="400.0">
+                    <columns>
+                      <TableColumn fx:id="partIdColumn" prefWidth="55.0" text="ID" />
+                      <TableColumn fx:id="partNameColumn" prefWidth="86.0" text="Name" />
+                        <TableColumn fx:id="partInvColumn" prefWidth="119.0" text="Inventory Level" />
+                        <TableColumn fx:id="partPriceColumn" prefWidth="139.0" text="Price/Cost Per Unit" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="50.0" layoutY="15.0" text="Parts">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="284.0" layoutY="212.0" mnemonicParsing="false" onAction="#onAddPartPressed" text="Add" />
+                  <Button layoutX="328.0" layoutY="212.0" mnemonicParsing="false" onAction="#onModifyPartPressed" text="Modify" />
+                  <Button layoutX="388.0" layoutY="212.0" mnemonicParsing="false" onAction="#onDeletePartPressed" text="Delete" />
+               </children>
+            </Pane>
+            <Pane prefHeight="250.0" prefWidth="91.0" />
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="240.0" prefWidth="500.0" style="-fx-border-color: black; -fx-border-radius: 30;">
+               <children>
+                  <TableView fx:id="productTableView" layoutX="40.0" layoutY="40.0" prefHeight="170.0" prefWidth="400.0">
+                     <columns>
+                        <TableColumn fx:id="productIdColumn" prefWidth="55.0" text="ID" />
+                        <TableColumn fx:id="productNameColumn" prefWidth="86.0" text="Name" />
+                        <TableColumn fx:id="productInvColumn" prefWidth="119.0" text="Inventory Level" />
+                        <TableColumn fx:id="productPriceColumn" prefWidth="139.0" text="Price/Cost Per Unit" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="50.0" layoutY="15.0" text="Products">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="productSearchField" layoutX="275.0" layoutY="10.0" onKeyReleased="#onProductUserInput" onMouseClicked="#onProductUserInput" prefWidth="160.0" promptText="Search by Product Name or ID" />
+                  <Button layoutX="284.0" layoutY="212.0" mnemonicParsing="false" onAction="#onAddProductPressed" text="Add" />
+                  <Button layoutX="328.0" layoutY="212.0" mnemonicParsing="false" onAction="#onModifyProductPressed" text="Modify" />
+                  <Button layoutX="388.0" layoutY="212.0" mnemonicParsing="false" onAction="#onDeleteProductPressed" text="Delete" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

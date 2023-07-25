@@ -1,0 +1,4 @@
+module:com.example.inventorysystem
+com.hubbard.inventorysystem
+com.hubbard.inventorysystem.controller
+com.hubbard.inventorysystem.model

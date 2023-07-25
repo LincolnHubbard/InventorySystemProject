@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hubbard.inventorysystem.controller.ModifyProductController">
+   <children>
+      <Pane layoutX="40.0" layoutY="50.0" prefHeight="519.0" prefWidth="820.0" style="-fx-border-color: black; -fx-border-radius: 15;">
+         <children>
+            <HBox fillHeight="false" layoutX="38.0" layoutY="27.0" prefHeight="30.0" prefWidth="730.0">
+               <children>
+                  <Label text="Modify Product">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="30.0" prefWidth="469.0" />
+                  <TextField fx:id="partSearchField" onKeyReleased="#onUserInput" onMouseClicked="#onUserInput" prefHeight="25.0" prefWidth="166.0" promptText="Search by Part ID or Name" />
+               </children>
+            </HBox>
+            <GridPane layoutX="38.0" layoutY="170.0" prefHeight="144.0" prefWidth="300.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="57.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="88.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="53.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="122.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="122.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="productId" disable="true" prefHeight="25.0" prefWidth="135.0" text="1" GridPane.columnIndex="1" GridPane.columnSpan="2">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label text="ID" />
+                  <Label text="Name" GridPane.rowIndex="1" />
+                  <Label text="Inv" GridPane.rowIndex="2" />
+                  <Label text="Price" GridPane.rowIndex="3" />
+                  <Label text="Max" GridPane.rowIndex="4" />
+                  <Label text="Min" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="productMin" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <TextField fx:id="productMax" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="productCost" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="productName" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="productInv" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <VBox layoutX="433.0" layoutY="57.0" prefHeight="370.0" prefWidth="360.0">
+               <children>
+                  <TableView fx:id="partTableView" prefHeight="175.0" prefWidth="358.0">
+                     <columns>
+                        <TableColumn fx:id="partIdColumn" prefWidth="53.0" text="Part ID" />
+                        <TableColumn fx:id="partNameColumn" prefWidth="70.0" text="Part Name" />
+                        <TableColumn fx:id="partInvColumn" prefWidth="112.0" text="Inventory Level" />
+                        <TableColumn fx:id="partPriceColumn" prefWidth="122.0" text="Price/Cost Per Unit" />
+                     </columns>
+                  </TableView>
+                  <Pane prefHeight="47.0" prefWidth="358.0">
+                     <children>
+                        <Button layoutX="276.0" layoutY="10.0" mnemonicParsing="false" onAction="#addPartToTable" text="Add" />
+                     </children>
+                  </Pane>
+                  <TableView fx:id="associatedPartTableView" layoutX="10.0" layoutY="10.0" prefHeight="173.0" prefWidth="358.0">
+                     <columns>
+                        <TableColumn fx:id="asPartIdColumn" prefWidth="53.0" text="Part ID" />
+                        <TableColumn fx:id="asPartNameColumn" prefWidth="70.0" text="Part Name" />
+                        <TableColumn fx:id="asPartInvColumn" prefWidth="112.0" text="Inventory Level" />
+                        <TableColumn fx:id="asPartPriceColumn" prefWidth="122.0" text="Price/Cost Per Unit" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <ButtonBar layoutX="591.0" layoutY="470.0" prefHeight="49.0" prefWidth="200.0">
+               <buttons>
+                  <Button fx:id="saveProductButton" defaultButton="true" mnemonicParsing="false" onAction="#saveProduct" text="Save" />
+                  <Button fx:id="cancelProductButton" mnemonicParsing="false" onAction="#onCancelProductButtonPressed" text="Cancel" />
+               </buttons>
+            </ButtonBar>
+            <Button layoutX="632.0" layoutY="448.0" mnemonicParsing="false" onAction="#removeAsPart" prefHeight="25.0" prefWidth="157.0" text="Remove Associated Part" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
